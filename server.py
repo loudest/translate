@@ -1,12 +1,15 @@
 #!/usr/bin/env python
+import requests, redis, hashlib
 from json import dumps as json_encode
 from json import loads as json_decode
 from flask import Flask, request, make_response, render_template
 from boto3 import Session
 from botocore.exceptions import BotoCoreError, ClientError
-import requests, redis, hashlib
+
 
 app = Flask(__name__)
+app.config['ASK_VERIFY_REQUESTS'] = False
+
 session = Session(profile_name="alexa-aws")
 polly = session.client("polly")
 cache = redis.StrictRedis(host='localhost')
@@ -15,6 +18,7 @@ AUDIO_FORMATS = {"ogg_vorbis": "audio/ogg",
                  "mp3": "audio/mpeg",
                  "pcm": "audio/wave; codecs=1"}
 
+# Flask microservice
 @app.route('/')
 def homepage():
     return render_template('index.html')
@@ -79,6 +83,35 @@ def alexa_encode(voiceId,outputFormat,text):
 		response = make_response({"status": str(err)})
 		response.status = 500
 		return response
+
+# Alexa Skill endpoint
+@app.route('/alexa', methods=['POST','PUT','GET'])
+def alexa_skill():
+	data = json_decode(request.data)
+	text = data['request']['intent']['slots']['text']['value']
+	host = request.headers['X-Forwarded-Host']
+	url = 'https://'+host+'/translate/Joanna/mp3?text='+text;
+	data = {
+        "version": "1.01",
+        "response": {
+            "directives": [
+                {
+                    "type": "AudioPlayer.Play",
+                    "playBehavior": "REPLACE_ALL",
+                    "audioItem": {
+                        "stream": {
+                            "token": "12345",
+                            "url": url,
+                            "offsetInMilliseconds": 0
+                        }
+                    }
+                }
+            ],
+            "shouldEndSession": True
+        }
+    }
+
+	return json_encode(data)
 
 if __name__ == "__main__":
 	app.run()
