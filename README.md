@@ -2,6 +2,8 @@
 
 This [Alexa Skills Kit](https://developer.amazon.com/alexa-skills-kit) microservice combines the [AWS Polly](https://aws.amazon.com/polly/) and [IBM Watson](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) to translate phrases into foreign languages. 
 
+## Youtube Demo
+
 [Youtube Demo](https://youtu.be/AtzRwTrjsgw)
 
 ## Challenge and Approach
@@ -13,7 +15,7 @@ Our approach for satisfying the Machine Learning challenge was to:
 3. Increase scability and availability by utilization of Redis as a caching mechanism
 4. Render natural voice text-to-speech reponses with Amazon Polly
 
-Our team is comprised of:
+## Our team is comprised of:
 
 - [@loudest](https://github.com/loudest) - Spent 2016 traveling to 12 countries.
 
