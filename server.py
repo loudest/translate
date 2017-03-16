@@ -89,6 +89,8 @@ def alexa_encode(voiceId,outputFormat,text):
 def alexa_skill():
 	data = json_decode(request.data)
 	text = data['request']['intent']['slots']['text']['value']
+	text = text.lower()
+	text.replace("in spanish", "")
 	host = request.headers['X-Forwarded-Host']
 	url = 'https://'+host+'/translate/Joanna/mp3?text='+text;
 	data = {
