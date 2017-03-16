@@ -1,6 +1,6 @@
 ## Alexa transtion skill using Machine Learning services
 
-This [Alexa Skills Kit](https://developer.amazon.com/alexa-skills-kit) microservice combines the [AWS Polly](https://aws.amazon.com/polly/) and [IBM Watson](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) to translate phrases into foreign languages. 
+This [Alexa Skills Kit](https://developer.amazon.com/alexa-skills-kit) microservice combines the [AWS Polly](https://aws.amazon.com/polly/) and [IBM Watson](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) to translate phrases into foreign languages.  Skill was built in 10 hours.
 
 ## Youtube Demo
 
