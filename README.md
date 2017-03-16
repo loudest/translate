@@ -36,8 +36,8 @@ I made use of:
 ## Microservice REST API explained
 Flask service listens to the following REST endpoints:
 1. /voices - return AWS Polly natural voice text-to-speech synthesis choices
-2. /read/<voiceId>/<outputFormat> - returns English MP3 text of <voiceId> obtained from /voices in <outputFormat>[mp3,ogg,pcm].  text=<string> as GET input variable
-3. /translate/<language> - returns translated <language> MP3 text of from text=<string> as GET input variable
+2. /read/voiceId/outputFormat - returns English MP3 text of <voiceId> obtained from /voices in outputFormat[mp3,ogg,pcm].  text=string as GET input variable
+3. /translate/language - returns translated <language> MP3 text of from text=string as GET input variable
 4. /alexa - Alexa Skill service.  Utilizes the following utterance: what is {text} in {language}.
 
 ## License 
