@@ -1,8 +1,8 @@
-## Alexa Natural Voice with IBM Watson language transtion microservice API
+## Alexa transtion skill using Machine Learning services
 
-![](docs/architecture.png)
+This [Alexa Skills Kit](https://developer.amazon.com/alexa-skills-kit) microservice combines the [AWS Polly](https://aws.amazon.com/polly/) and [IBM Watson](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) to translate phrases into foreign languages. 
 
-This [Alexa Skills Kit](https://developer.amazon.com/alexa-skills-kit) microservice combines the [AWS Polly](https://aws.amazon.com/polly/) and [IBM Watson](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) to translate phrases into foreign languages.
+[Youtube Demo](https://youtu.be/AtzRwTrjsgw)
 
 ## Challenge and Approach
 
@@ -17,6 +17,10 @@ Our team is comprised of:
 
 - [@loudest](https://github.com/loudest) - Spent 2016 traveling to 12 countries.
 
+## Microservices architecture
+
+![architecture](docs/architecture.png)
+
 ## Technologies, APIs, and Datasets Utilized
 
 I made use of:
@@ -24,7 +28,7 @@ I made use of:
 - [Alexa Skills Kit](http://opencv.org/) for interaction with Alexa IoT device
 - [AWS Polly](https://aws.amazon.com/polly/) to generate dynamic natural voice text-to-speech MP3 files
 - [IBM Watson](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) for language identification and translation services
-- [AWS Lambda](http://github.com/mrdoob/stats.js) NoOps provisionless hosting of Python code with auto-scaling capabilities
+- [AWS Lambda](http://github.com/mrdoob/stats.js) NoOps cloud hosting with horizontal auto-scaling and load-balancing capabilities
 - [AWS ElastiCache / Redis](https://aws.amazon.com/elasticache/) in-memory noSQL data store to enable low latency look-ups of datasets
 
 ## Microservice REST API explained
